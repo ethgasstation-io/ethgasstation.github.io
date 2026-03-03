@@ -49,12 +49,19 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'EthGasStation Docs',
+        title: '',
+        logo: {
+          alt: 'EthGasStation',
+          src: 'img/logo.svg',
+          width: 28,
+          height: 28,
+        },
         items: [
           {type: 'docSidebar', sidebarId: 'docsSidebar', position: 'left', label: 'Docs'},
           {to: '/docs/ai-connect/overview', label: 'AI Connect', position: 'left'},
           {to: '/docs/api/overview', label: 'API', position: 'left'},
           {to: '/docs/alerts/overview', label: 'Alerts', position: 'left'},
+          {href: 'https://ethgasstation.io', label: 'App', position: 'right'},
           {
             href: 'https://github.com/ethgasstation-io/ethgasstation',
             label: 'GitHub',
@@ -66,27 +73,24 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Product',
+            title: 'EthGasStation',
             items: [
-              {label: 'EthGasStation', href: 'https://ethgasstation.io'},
+              {label: 'App', href: 'https://ethgasstation.io'},
               {label: 'Pricing', href: 'https://ethgasstation.io/pricing'},
             ],
           },
           {
             title: 'Docs',
             items: [
-              {label: 'Getting started', to: '/docs/intro'},
-              {label: 'AI Connect (MCP)', to: '/docs/ai-connect/overview'},
+              {label: 'Intro', to: '/docs/intro'},
+              {label: 'AI Connect', to: '/docs/ai-connect/overview'},
               {label: 'API', to: '/docs/api/overview'},
               {label: 'Alerts', to: '/docs/alerts/overview'},
+              {label: 'FAQ', to: '/docs/faq'},
             ],
           },
-          {
-            title: 'Support',
-            items: [{label: 'FAQ', to: '/docs/faq'}],
-          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} EthGasStation. Built with Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()} EthGasStation`,
       },
       prism: {
         theme: prismThemes.github,
