@@ -5,31 +5,31 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'Live gas lanes',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/icon-gas.svg').default,
     description: (
       <>
         Track <strong>Economy</strong>, <strong>Standard</strong>, and <strong>Fast</strong> lanes
-        with freshness indicators so you know when numbers are real-time.
+        with freshness indicators so you can act on real-time numbers.
       </>
     ),
   },
   {
     title: 'Alerts that don’t spam you',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/icon-alerts.svg').default,
     description: (
       <>
-        Set threshold alerts with cooldowns so you get notified when gas crosses
-        your target — not every time it wiggles.
+        Threshold alerts with cooldowns — notify on meaningful crossings, not every
+        tiny fluctuation.
       </>
     ),
   },
   {
     title: 'API + AI Connect (MCP)',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/icon-api.svg').default,
     description: (
       <>
-        Integrate gas data into your systems with the API, or manage alerts from
-        chat via <strong>AI Connect</strong> (MCP).
+        Use the API for integrations, or manage alerts from chat via{' '}
+        <strong>AI Connect</strong> (MCP).
       </>
     ),
   },
@@ -38,12 +38,14 @@ const FeatureList = [
 function Feature({Svg, title, description}) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p className={styles.featureText}>{description}</p>
+      <div className={styles.featureCard}>
+        <div className={styles.featureIconWrap}>
+          <Svg className={styles.featureIcon} role="img" aria-hidden="true" />
+        </div>
+        <div className="text--center padding-horiz--md">
+          <Heading as="h3">{title}</Heading>
+          <p className={styles.featureText}>{description}</p>
+        </div>
       </div>
     </div>
   );
