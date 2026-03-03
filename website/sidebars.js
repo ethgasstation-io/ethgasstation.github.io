@@ -4,6 +4,7 @@
 const sidebars = {
   docsSidebar: [
     'intro',
+    'gas-lanes-and-stats',
     {
       type: 'category',
       label: 'AI Connect (MCP)',
