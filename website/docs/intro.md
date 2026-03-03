@@ -9,7 +9,7 @@ EthGasStation provides gas visibility and execution tooling for Ethereum users a
 
 Use this documentation to:
 
-- Read current network fee conditions and lane estimates
+- Read current network fee conditions and lane estimates (see [Gas lanes & calculated stats](./gas-lanes-and-stats.md))
 - Configure price alerts with noise controls
 - Integrate gas data into apps and automations with the API
 - Connect AI tools through MCP for account-aware workflows
