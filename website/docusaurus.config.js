@@ -12,11 +12,9 @@ const config = {
     v4: true,
   },
 
-  // Public docs site
   url: 'https://docs.ethgasstation.io',
   baseUrl: '/',
 
-  // Repo metadata (used for edit links and some deploy tooling)
   organizationName: 'ethgasstation-io',
   projectName: 'ethgasstation.github.io',
 
@@ -53,9 +51,10 @@ const config = {
       navbar: {
         title: 'EthGasStation Docs',
         items: [
-          {type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs'},
+          {type: 'docSidebar', sidebarId: 'docsSidebar', position: 'left', label: 'Docs'},
           {to: '/docs/ai-connect/overview', label: 'AI Connect', position: 'left'},
           {to: '/docs/api/overview', label: 'API', position: 'left'},
+          {to: '/docs/alerts/overview', label: 'Alerts', position: 'left'},
           {
             href: 'https://github.com/ethgasstation-io/ethgasstation',
             label: 'GitHub',
@@ -79,13 +78,12 @@ const config = {
               {label: 'Getting started', to: '/docs/intro'},
               {label: 'AI Connect (MCP)', to: '/docs/ai-connect/overview'},
               {label: 'API', to: '/docs/api/overview'},
+              {label: 'Alerts', to: '/docs/alerts/overview'},
             ],
           },
           {
             title: 'Support',
-            items: [
-              {label: 'FAQ', to: '/docs/faq'},
-            ],
+            items: [{label: 'FAQ', to: '/docs/faq'}],
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} EthGasStation. Built with Docusaurus.`,
