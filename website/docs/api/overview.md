@@ -1,22 +1,27 @@
 ---
-sidebar_position: 1
 title: Overview
 ---
 
-# API
+# API Overview
 
-EthGasStation provides API access for scripts and integrations.
+The EthGasStation API provides structured access to gas data and alert resources for backend services, automation, and analytics workflows.
 
-## Authentication
+## API capabilities
 
-API authentication depends on your deployment/config. In general:
-- Use a per-user credential issued in the dashboard
-- Keep secrets out of chat
+- Current gas lane recommendations
+- Recent and historical fee context
+- Alert CRUD operations
 
-## Rate limits
+## Base URL
 
-Plans have daily request limits and feature gating.
+```text
+https://api.ethgasstation.io
+```
 
-## Next
+## Data format
 
-- See endpoints and examples in the API playground (Scalar) on your deployment.
+- Request and response bodies use JSON
+- Fee values are returned in `gwei` unless noted otherwise
+- Timestamps are returned in ISO 8601 UTC format
+
+Continue with authentication and operational limits before integrating in production.

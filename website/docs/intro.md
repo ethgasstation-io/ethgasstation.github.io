@@ -1,21 +1,29 @@
 ---
 sidebar_position: 1
-title: Welcome
+title: Intro
 ---
 
-# EthGasStation Docs
+# EthGasStation Documentation
 
-EthGasStation helps you make better Ethereum transaction decisions with:
+EthGasStation provides gas visibility and execution tooling for Ethereum users and teams.
 
-- **Live gas stats** (base fee, priority fee, lanes)
-- **Alerts** (notify when gas hits your threshold)
-- **API access** for integrations and automation
-- **AI Connect (MCP)** to bring EthGasStation context into ChatGPT
+Use this documentation to:
 
-## Quick links
+- Read current network fee conditions and lane estimates
+- Configure price alerts with noise controls
+- Integrate gas data into apps and automations with the API
+- Connect AI tools through MCP for account-aware workflows
 
-- **AI Connect (MCP):** connect ChatGPT and create alerts from chat
-- **API:** endpoints, auth, rate limits
-- **Alerts:** how thresholds/cooldowns work
+## Core product areas
 
-If you’re not sure where to start, open **AI Connect** if your goal is “do this from ChatGPT”, otherwise start with **Alerts**.
+## AI Connect (MCP)
+Connect compatible AI clients to EthGasStation so prompts can fetch gas data and manage alerts in your account context.
+
+## API
+Use authenticated endpoints for snapshots, historical context, and alert management.
+
+## Alerts
+Create threshold-based alerts with cooldowns to avoid duplicate notifications during volatile periods.
+
+## FAQ
+Review common operational and account questions before opening support tickets.
