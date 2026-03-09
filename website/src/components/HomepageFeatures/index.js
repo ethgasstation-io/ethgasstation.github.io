@@ -1,53 +1,62 @@
 import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 const FeatureList = [
   {
     title: 'Live gas lanes',
-    Svg: require('@site/static/img/icon-gas.svg').default,
     description: (
       <>
-        Track <strong>Economy</strong>, <strong>Standard</strong>, and <strong>Fast</strong> lanes
-        with freshness indicators so you can act on real-time numbers.
+        Track <strong>Economy</strong>, <strong>Standard</strong>, and <strong>Fast</strong>{' '}
+        lanes with freshness guidance and product terminology that matches the app.
       </>
     ),
+    href: '/docs/gas-lanes-and-stats',
   },
   {
-    title: 'Alerts that don’t spam you',
-    Svg: require('@site/static/img/icon-alerts.svg').default,
+    title: 'Alert operations',
     description: (
       <>
-        Threshold alerts with cooldowns — notify on meaningful crossings, not every
-        tiny fluctuation.
+        Configure thresholds and cooldowns so your alerts react to real opportunities,
+        not every tiny swing.
       </>
     ),
+    href: '/docs/alerts/overview',
   },
   {
-    title: 'API + AI Connect (MCP)',
-    Svg: require('@site/static/img/icon-api.svg').default,
+    title: 'Developer API',
     description: (
       <>
-        Use the API for integrations, or manage alerts from chat via{' '}
-        <strong>AI Connect</strong> (MCP).
+        Authenticate, handle limits, and wire gas data into wallets, bots, dashboards,
+        and backend jobs.
       </>
     ),
+    href: '/docs/api/overview',
+  },
+  {
+    title: 'AI Connect workflows',
+    description: (
+      <>
+        Connect MCP-compatible clients so prompts can inspect gas context and manage
+        alerts in account-aware sessions.
+      </>
+    ),
+    href: '/docs/ai-connect/overview',
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({title, description, href}) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className={styles.featureCard}>
-        <div className={styles.featureIconWrap}>
-          <Svg className={styles.featureIcon} role="img" aria-hidden="true" />
-        </div>
-        <div className="text--center padding-horiz--md">
+    <article className={clsx(styles.featureCard)}>
+      <Link to={href} className={styles.featureLink}>
+        <div>
           <Heading as="h3">{title}</Heading>
           <p className={styles.featureText}>{description}</p>
+          <span className={styles.featureCta}>Open docs</span>
         </div>
-      </div>
-    </div>
+      </Link>
+    </article>
   );
 }
 
@@ -55,7 +64,18 @@ export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <div className={styles.sectionLead}>
+          <p className={styles.sectionEyebrow}>Reference surface</p>
+          <Heading as="h2" className={styles.sectionTitle}>
+            Core product areas documented here.
+          </Heading>
+          <p className={styles.sectionText}>
+            The homepage points into the documentation set: feature usage, integration details,
+            and operational guidance for the product.
+          </p>
+        </div>
+
+        <div className={styles.featureGrid}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

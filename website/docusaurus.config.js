@@ -47,52 +47,26 @@ const config = {
     ({
       colorMode: {
         defaultMode: 'dark',
-        disableSwitch: false,
+        disableSwitch: true,
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: '',
-        logo: {
-          alt: 'EthGasStation',
-          src: 'img/logo.svg',
-          width: 28,
-          height: 28,
-        },
+        title: 'EthGasStation',
         items: [
           {type: 'docSidebar', sidebarId: 'docsSidebar', position: 'left', label: 'Docs'},
-          {to: '/docs/ai-connect/overview', label: 'AI Connect', position: 'left'},
           {to: '/docs/api/overview', label: 'API', position: 'left'},
-          {to: '/docs/alerts/overview', label: 'Alerts', position: 'left'},
-          {href: 'https://ethgasstation.io', label: 'App', position: 'right'},
           {
-            href: 'https://github.com/ethgasstation-io/ethgasstation',
-            label: 'GitHub',
+            href: 'https://ethgasstation.io',
+            label: 'Open app',
             position: 'right',
+            className: 'navbar-action navbar-action-secondary',
           },
         ],
       },
       footer: {
         style: 'dark',
-        links: [
-          {
-            title: 'EthGasStation',
-            items: [
-              {label: 'App', href: 'https://ethgasstation.io'},
-              {label: 'Pricing', href: 'https://ethgasstation.io/pricing'},
-            ],
-          },
-          {
-            title: 'Docs',
-            items: [
-              {label: 'Intro', to: '/docs/intro'},
-              {label: 'AI Connect', to: '/docs/ai-connect/overview'},
-              {label: 'API', to: '/docs/api/overview'},
-              {label: 'Alerts', to: '/docs/alerts/overview'},
-              {label: 'FAQ', to: '/docs/faq'},
-            ],
-          },
-        ],
-        copyright: `© ${new Date().getFullYear()} EthGasStation`,
+        links: [],
+        copyright: `© ${new Date().getFullYear()} EthGasStation. Support: <a href="mailto:help@ethgasstation.io">help@ethgasstation.io</a>`,
       },
       prism: {
         theme: prismThemes.github,

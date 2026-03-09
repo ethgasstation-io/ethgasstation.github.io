@@ -1,33 +1,148 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
-  padding: 5rem 0 4rem;
-  text-align: center;
+  padding: 6rem 0;
   position: relative;
-  overflow: hidden;
-  background: radial-gradient(1200px circle at top, rgba(37, 99, 235, 0.22), transparent 55%),
-    linear-gradient(180deg, rgba(17, 24, 39, 0.04), transparent 60%);
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 3rem 1.5rem;
-  }
+.heroCopy {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--egs-text-soft);
+}
+
+.title {
+  margin-bottom: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+.titleLight {
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.subtitle {
+  margin: 0 auto;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--egs-text-soft);
+  max-width: 600px;
 }
 
 .buttons {
   display: flex;
-  gap: 0.75rem;
-  align-items: center;
+  gap: 1rem;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.buttons .button {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.quickLinks {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.quickLink {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--egs-border);
+  background: var(--ifm-card-background-color);
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.quickLink strong {
+  display: block;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.quickLink p {
+  margin: 0;
+  color: var(--egs-text-soft);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.quickLink:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--ifm-hover-overlay);
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 .smallNote {
-  margin-top: 1.25rem;
+  margin: 4rem 0 0;
   font-size: 0.9rem;
-  opacity: 0.85;
+  color: var(--egs-text-soft);
+}
+
+.smallNote a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 1px;
+  transition: border-color 0.2s;
+}
+
+.smallNote a:hover {
+  border-color: #fff;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 0;
+  }
+
+  .title {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .buttons > :global(.button) {
+    width: 100%;
+    justify-content: center;
+  }
 }
