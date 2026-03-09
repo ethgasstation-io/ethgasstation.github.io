@@ -4,26 +4,42 @@ title: Authentication
 
 # Authentication
 
-All API requests must include a valid bearer token.
+EthGasStation API v1 uses an API key header, not a bearer token.
 
 ## Header format
 
 ```http
-Authorization: Bearer <token>
+x-api-key: <your_api_key>
 ```
 
-## Token guidance
+## How to get a key
 
-- Create tokens from your EthGasStation dashboard
-- Store tokens in a secret manager, never in source code
-- Rotate tokens on a regular schedule or after incident response
+Create keys in the signed-in app:
+
+1. Open `Developer`
+2. Open `API & MCP Console`
+3. Create a named key
+4. Copy the full key immediately
+
+## Key handling guidance
+
+- store keys in a secret manager or deployment environment, not source control
+- rotate keys when an integration changes ownership or a credential may have leaked
+- revoke keys you no longer need
+- prefer one key per integration or service owner
 
 ## Example request
 
 ```bash
-curl -s https://api.ethgasstation.io/v1/gas/latest \
-  -H "Authorization: Bearer $EGS_API_TOKEN" \
+curl -s https://ethgasstation.io/be/api/v1/gas/current \
+  -H "x-api-key: $EGS_API_KEY" \
   -H "Accept: application/json"
 ```
 
-Requests without a valid token return `401 Unauthorized`.
+## MCP is different
+
+AI Connect / MCP does not use `x-api-key` in its normal production flow. MCP uses OAuth and bearer tokens for user-scoped access.
+
+Use API keys for server-side integrations and testing. Use OAuth for MCP clients.
+
+Requests without a valid API key return `401 Unauthorized`.

@@ -5,25 +5,40 @@ title: Intro
 
 # EthGasStation Documentation
 
-EthGasStation provides gas visibility and execution tooling for Ethereum users and teams.
+EthGasStation is a dark, app-first Ethereum gas product. The documentation should help you use the current app surface, not restate the marketing site.
 
-Use this documentation to:
+Use these docs to understand the product areas that exist in the app today:
 
-- Read current network fee conditions and lane estimates (see [Gas lanes & calculated stats](./gas-lanes-and-stats.md))
-- Configure price alerts with noise controls
-- Integrate gas data into apps and automations with the API
-- Connect AI tools through MCP for account-aware workflows
+- [Dashboard and Gas Explorer](./dashboard-and-explorer.md) for live lanes, confidence signals, priority-fee spreads, and deeper charting
+- [Gas lanes & calculated stats](./gas-lanes-and-stats.md) for how the product turns raw fee data into actionable views
+- [Alerts](./alerts/overview.md) for threshold-based notifications across email, webhook, Slack, Telegram, and web push
+- [Auto Txs & wallet funding](./auto-txs-and-wallet.md) for scheduled execution rules, relay balance, deposits, and withdrawals
+- [API](./api/overview.md) for programmatic access, API keys, usage limits, and examples
+- [AI Connect (MCP)](./ai-connect/overview.md) for ChatGPT and other MCP-compatible clients
 
-## Core product areas
+## Product areas in the current app
 
-## AI Connect (MCP)
-Connect compatible AI clients to EthGasStation so prompts can fetch gas data and manage alerts in your account context.
+### Dashboard
+The signed-in dashboard is the fastest way to check current gas conditions before you send. It combines live lanes, congestion context, confirmation timing, and a confidence score.
 
-## API
-Use authenticated endpoints for snapshots, historical context, and alert management.
+### Gas Explorer
+Gas Explorer is the deeper analysis surface. It adds multiple timeframes, percentile views, compare mode, anomaly markers, and CSV export.
 
-## Alerts
-Create threshold-based alerts with cooldowns to avoid duplicate notifications during volatile periods.
+### Alerts
+Alerts are managed inside the app and through the API. The current alert form supports multiple delivery channels, lane selection, threshold direction, cooldown windows, notes, and optional disable-once behavior.
 
-## FAQ
-Review common operational and account questions before opening support tickets.
+### Auto Txs
+Auto Txs let you prepare a signed transaction and execute it later when gas falls to your target. This area also shows execution history and savings journal entries.
+
+### Wallet / Top-up
+The app includes a relay wallet balance view for funded execution workflows. You can top up from a wallet, inspect the ledger, and submit withdrawal requests.
+
+### Developer API & MCP Console
+The developer area is where you create API keys, monitor daily usage, and inspect MCP readiness values such as the SSE URL, message endpoint, and OAuth metadata endpoint.
+
+## How to use this docs set
+
+1. Start with the app workflow you care about.
+2. Use the app-focused pages first if you are operating manually.
+3. Use the API and AI Connect pages when you need automation or external integrations.
+4. Use the FAQ for account, plan, and operational questions that do not belong in endpoint reference pages.

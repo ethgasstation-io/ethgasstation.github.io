@@ -4,49 +4,56 @@ title: Install & Setup
 
 # Install & Setup
 
-Use these steps to connect an MCP-compatible AI client to EthGasStation.
+Use these steps to connect a current MCP-compatible AI client to EthGasStation.
 
 ## Prerequisites
 
-- EthGasStation account with AI Connect enabled
-- Access to an MCP-compatible client
-- Browser session available for OAuth login and consent
+- an EthGasStation account
+- an MCP-compatible client such as ChatGPT
+- browser access for OAuth consent
 
-## 1. Get your MCP endpoint
+## 1. Use the SSE endpoint
 
-From the EthGasStation dashboard, copy your workspace MCP URL.
-
-Example:
+The current MCP server URL is the SSE endpoint:
 
 ```text
-https://api.ethgasstation.io/mcp
+https://ethgasstation.io/mcp/sse
+```
+
+Internally, MCP messages are sent to:
+
+```text
+https://ethgasstation.io/mcp/message
 ```
 
 ## 2. Add the server in your AI client
 
-Configure an MCP server entry using your endpoint.
-
-```json
-{
-  "name": "ethgasstation",
-  "url": "https://api.ethgasstation.io/mcp"
-}
-```
+Configure a new MCP server entry and point it to the SSE URL above.
 
 ## 3. Authorize access
 
 When prompted:
 
 1. Sign in to EthGasStation
-2. Approve requested scopes
+2. Approve the requested scopes
 3. Return to your AI client
+
+The current scope set is:
+
+```text
+stats:read
+alerts:read
+alerts:write
+```
+
+If your client supports dynamic OAuth client registration, you may not need to enter a fixed client id and client secret manually.
 
 ## 4. Verify the connection
 
 Run a quick read-only prompt:
 
 ```text
-Show current Ethereum gas lanes and the 24h low/high.
+What’s gas right now (slow/average/fast), and how does it compare to the 24h range?
 ```
 
 If values return, setup is complete.

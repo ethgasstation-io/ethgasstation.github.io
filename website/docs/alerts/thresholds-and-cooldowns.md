@@ -4,22 +4,34 @@ title: Thresholds and Cooldowns
 
 # Thresholds and Cooldowns
 
-Correct threshold and cooldown settings reduce noise while preserving signal.
+Correct threshold and cooldown settings matter more than the alert feature itself. Bad values create noise. Good values create timing signal.
 
 ## Choosing thresholds
 
-- For opportunistic transactions, track the `standard` lane and choose a value near your acceptable median
-- For urgent operations, track the `fast` lane and set an upper safety limit
-- Revisit thresholds weekly during changing market conditions
+- For routine sends, start with the `Average` lane.
+- For urgent operations, use the `Fast` lane as your safety threshold.
+- For opportunistic execution, compare the current lane against the `24h` or `7d` range in Gas Explorer before locking a number.
+- Revisit thresholds when market regime changes are frequent.
 
 ## Choosing cooldowns
 
-- Short cooldowns (5-15 min): highly time-sensitive execution
-- Medium cooldowns (30-60 min): balanced operational monitoring
-- Long cooldowns (2h+): high-noise suppression for broader awareness
+The current app exposes practical preset windows such as:
+
+- `30m`
+- `1h`
+- `4h`
+- `1d`
+
+Use them like this:
+
+- short cooldowns: very time-sensitive operations
+- medium cooldowns: balanced day-to-day monitoring
+- long cooldowns: broad awareness without repeated noise
 
 ## Recommended workflow
 
-1. Set an initial threshold from the last 7-day range.
-2. Start with a 30-minute cooldown.
-3. Review trigger frequency after 48 hours and tune.
+1. Use Dashboard or Gas Explorer to inspect current and recent market context.
+2. Set a threshold in gwei based on real recent behavior, not memory.
+3. Start with `1h` if you are unsure.
+4. Review how often the alert fires after a few days.
+5. Split one noisy alert into multiple narrower alerts if needed.

@@ -4,35 +4,67 @@ title: Examples
 
 # Examples
 
-Use these examples as integration baselines.
+Use these examples as baselines for the current API v1 surface.
 
-## Get latest gas snapshot
+## Get current gas snapshot
 
 ```bash
-curl -s https://api.ethgasstation.io/v1/gas/latest \
-  -H "Authorization: Bearer $EGS_API_TOKEN" \
+curl -s https://ethgasstation.io/be/api/v1/gas/current \
+  -H "x-api-key: $EGS_API_KEY" \
   -H "Accept: application/json"
+```
+
+## Get priority fee percentile series
+
+```bash
+curl -s "https://ethgasstation.io/be/api/v1/metrics/priority-fee?from=2026-03-08T00:00:00Z&to=2026-03-08T12:00:00Z&percentile=p95" \
+  -H "x-api-key: $EGS_API_KEY"
 ```
 
 ## Create a gas alert
 
+This matches the current alert model more closely than the old `lane/operator` examples.
+
 ```bash
-curl -s https://api.ethgasstation.io/v1/alerts \
+curl -s https://ethgasstation.io/be/api/v1/alerts \
   -X POST \
-  -H "Authorization: Bearer $EGS_API_TOKEN" \
+  -H "x-api-key: $EGS_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "lane": "standard",
-    "operator": "lte",
-    "threshold_gwei": 20,
-    "cooldown_minutes": 30,
-    "channels": ["email"]
+    "thresholdGwei": 18,
+    "gasSpeed": "AVERAGE",
+    "condition": "LESS_THAN",
+    "cooldownMs": 3600000,
+    "disableOnce": false,
+    "method": "EMAIL",
+    "channels": ["EMAIL"],
+    "to": "alice@example.com",
+    "note": "Send window for routine transfers"
   }'
 ```
 
-## List active alerts
+## List alerts
 
 ```bash
-curl -s https://api.ethgasstation.io/v1/alerts?status=active \
-  -H "Authorization: Bearer $EGS_API_TOKEN"
+curl -s https://ethgasstation.io/be/api/v1/alerts \
+  -H "x-api-key: $EGS_API_KEY"
+```
+
+## Update alert status
+
+```bash
+curl -s https://ethgasstation.io/be/api/v1/alerts/ALERT_ID/status \
+  -X PUT \
+  -H "x-api-key: $EGS_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "status": "DISABLED"
+  }'
+```
+
+## Get dashboard market summary
+
+```bash
+curl -s "https://ethgasstation.io/be/api/v1/dashboard/stats/market?timeFrame=24h" \
+  -H "x-api-key: $EGS_API_KEY"
 ```

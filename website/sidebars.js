@@ -4,7 +4,9 @@
 const sidebars = {
   docsSidebar: [
     'intro',
+    'dashboard-and-explorer',
     'gas-lanes-and-stats',
+    'auto-txs-and-wallet',
     {
       type: 'category',
       label: 'AI Connect (MCP)',
@@ -20,6 +22,7 @@ const sidebars = {
       label: 'API',
       items: [
         'api/overview',
+        'api/console-and-keys',
         'api/authentication',
         'api/rate-limits',
         'api/errors',
